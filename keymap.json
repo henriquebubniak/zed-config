@@ -35,9 +35,9 @@
       "space g b": "git::Blame",
 
       // LSP actions
-      "space c a": "editor::ToggleCodeActions",
-      "space c r": "editor::Rename",
-      "space c f": "editor::Format",
+      "space l a": "editor::ToggleCodeActions",
+      "space l r": "editor::Rename",
+      "space l f": "editor::Format",
 
       // Buffers (tabs)
       "shift-h": "pane::ActivatePreviousItem",
@@ -151,6 +151,12 @@
       // Mini.ai style (tree-sitter aware)
       "shift-q": "vim::MiniQuotes",
       "shift-b": "vim::MiniBrackets"
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-t": "workspace::ToggleBottomDock"
     }
   }
 ]
