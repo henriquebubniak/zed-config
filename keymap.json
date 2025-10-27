@@ -1,0 +1,156 @@
+[
+  // ============================================
+  // NORMAL & VISUAL MODE BINDINGS
+  // ============================================
+  {
+    "context": "VimControl && !menu",
+    "bindings": {
+      // Window/Pane navigation (like tmux/vim)
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-j": "workspace::ActivatePaneDown",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-l": "workspace::ActivatePaneRight",
+
+      // Quick save
+      "space w": "workspace::Save",
+
+      // File navigation
+      "space f": "file_finder::Toggle",
+
+      // Search
+      "space /": "buffer_search::Deploy",
+      "space s g": "pane::DeploySearch",
+
+      // Project panel
+      "space e": "workspace::ToggleLeftDock",
+
+      // Terminal
+      "space t": "terminal_panel::ToggleFocus",
+
+      // Diagnostics
+      "space d": "diagnostics::Deploy",
+
+      // Git
+      "space g s": "git_panel::ToggleFocus",
+      "space g b": "git::Blame",
+
+      // LSP actions
+      "space c a": "editor::ToggleCodeActions",
+      "space c r": "editor::Rename",
+      "space c f": "editor::Format",
+
+      // Buffers (tabs)
+      "shift-h": "pane::ActivatePreviousItem",
+      "shift-l": "pane::ActivateNextItem",
+      "space b d": "pane::CloseActiveItem",
+      "space b o": "pane::CloseOtherItems"
+    }
+  },
+
+  // ============================================
+  // NORMAL MODE ONLY
+  // ============================================
+  {
+    "context": "vim_mode == normal && !menu",
+    "bindings": {
+      // Neovim-style yank to end of line
+      "shift-y": ["workspace::SendKeystrokes", "y $"],
+
+      // Better line navigation
+      "shift-j": ["workspace::SendKeystrokes", "5 j"],
+      "shift-k": ["workspace::SendKeystrokes", "5 k"],
+
+      // Center cursor after jumps
+      "n": ["workspace::SendKeystrokes", "n z z"],
+      "shift-n": ["workspace::SendKeystrokes", "shift-n z z"],
+
+      // Quick splits
+      "space v": "pane::SplitRight",
+      "space s": "pane::SplitDown"
+    }
+  },
+
+  // ============================================
+  // INSERT MODE
+  // ============================================
+  {
+    "context": "vim_mode == insert",
+    "bindings": {
+      // jk to escape (popular mapping)
+      "j j": "vim::NormalBefore",
+
+      // Completion shortcuts
+      "ctrl-space": "editor::ShowCompletions",
+      "ctrl-x ctrl-o": "editor::ShowCompletions",
+      "ctrl-x ctrl-l": "editor::ToggleCodeActions"
+    }
+  },
+
+  // ============================================
+  // VISUAL MODE
+  // ============================================
+  {
+    "context": "vim_mode == visual",
+    "bindings": {
+      // Surround with S (like vim-surround in visual mode)
+      "shift-s": "vim::PushAddSurrounds",
+
+      // Better indentation (keeps selection)
+      "<": ["workspace::SendKeystrokes", "< g v"],
+      ">": ["workspace::SendKeystrokes", "> g v"]
+    }
+  },
+
+  // ============================================
+  // DOCK NAVIGATION (for panels/terminal)
+  // ============================================
+  {
+    "context": "Dock",
+    "bindings": {
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-j": "workspace::ActivatePaneDown",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-l": "workspace::ActivatePaneRight"
+    }
+  },
+
+  // ============================================
+  // EMPTY PANE (when no file is open)
+  // ============================================
+  {
+    "context": "EmptyPane || SharedScreen",
+    "bindings": {
+      "space f": "file_finder::Toggle",
+      "space e": "workspace::ToggleLeftDock"
+    }
+  },
+
+  // ============================================
+  // SUBWORD MOTION (camelCase/snake_case)
+  // ============================================
+  {
+    "context": "VimControl && !menu && vim_mode != operator",
+    "bindings": {
+      "w": "vim::NextSubwordStart",
+      "b": "vim::PreviousSubwordStart",
+      "e": "vim::NextSubwordEnd",
+      "g e": "vim::PreviousSubwordEnd"
+    }
+  },
+
+  // ============================================
+  // OPERATOR PENDING (for text objects)
+  // ============================================
+  {
+    "context": "vim_operator == a || vim_operator == i || vim_operator == cs",
+    "bindings": {
+      // Any quotes/brackets (traditional vim)
+      "q": "vim::AnyQuotes",
+      "b": "vim::AnyBrackets",
+
+      // Mini.ai style (tree-sitter aware)
+      "shift-q": "vim::MiniQuotes",
+      "shift-b": "vim::MiniBrackets"
+    }
+  }
+]
