@@ -7,13 +7,42 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "agent_buffer_font_size": 15.0,
+  "agent_ui_font_size": 18.0,
+  "ui_font_weight": 500.0,
+  "ui_font_family": ".ZedSans",
+  "buffer_line_height": "comfortable",
+  "buffer_font_weight": 300.0,
+  "buffer_font_family": "JetBrainsMono Nerd Font",
+  "enable_language_server": true,
+  "terminal": {
+    "dock": null,
+    "font_family": "JetBrainsMono Nerd Font",
+    "font_size": 18
+  },
+  "agent": {
+    "inline_assistant_model": {
+      "provider": "zed.dev",
+      "model": "claude-sonnet-4-5"
+    },
+    "always_allow_tool_actions": true,
+    "default_model": {
+      "provider": "zed.dev",
+      "model": "claude-sonnet-4-5"
+    },
+    "model_parameters": []
+  },
+  "disable_ai": false,
   "relative_line_numbers": true,
   "vim_mode": true,
-  "ui_font_size": 16,
-  "buffer_font_size": 15,
+  "ui_font_size": 17.0,
+  "buffer_font_size": 18.0,
   "theme": {
     "mode": "system",
-    "light": "One Light",
-    "dark": "One Dark"
+    "light": "Gruvbox Light Soft",
+    "dark": "Kanagawa Wave - No Italics"
+  },
+  "features": {
+    "edit_prediction_provider": "none"
   }
 }
